@@ -171,7 +171,7 @@ const addIntern = () => {
           },
         {
           type: 'input',
-          name: 'managerOffice',
+          name: 'internSchool',
           message: "Enter your intern's school",
           validate: internSchool => {
             if (internSchool) {
