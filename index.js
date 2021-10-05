@@ -1,6 +1,8 @@
 const inquirer = require("inquirer");
+const Employee = require("./lib/Employee");
+const Manager = require('./lib/Manager');
 
-console.log("Hello world!");
+let nameArray = [];
 
 // Creates an array of questions for user input
 const getInput = () => {
@@ -8,7 +10,7 @@ const getInput = () => {
       {
         type: 'input',
         name: 'managerName',
-        message: "Enter your team manager's name?",
+        message: "Enter your team manager's name",
         validate: managerName => {
           if (managerName) {
             return true;
@@ -20,8 +22,21 @@ const getInput = () => {
       },
       {
         type: 'input',
-        name: 'managerEmail',
+        name: 'managerID',
         message: "Enter your manager's ID",
+        validate: managerID => {
+          if (managerID) {
+            return true;
+          } else {
+            console.log("Please enter your manager's ID!");
+            return false;
+          }
+        }
+      },
+      {
+        type: 'input',
+        name: 'managerEmail',
+        message: "Enter your manager's email",
         validate: managerEmail => {
           if (managerEmail) {
             return true;
@@ -51,9 +66,19 @@ const getInput = () => {
       }
     ])
     .then(answer => {
+        console.log(nameArray);
+
+        nameArray.push(new Manager(answer.managerName, answer.managerID, answer.managerEmail, "Manager", answer.managerOffice));
+
+
+        console.log(nameArray);
+
         if (answer.addMore) {
             pickEmployee();
         }
+    })
+    .catch(error => {
+        console.log(error);
     })
 };
 
@@ -64,9 +89,9 @@ const addEngineer = () => {
         {
           type: 'input',
           name: 'engineerName',
-          message: "Enter your engineer's name?",
-          validate: managerName => {
-            if (managerName) {
+          message: "Enter your engineer's name",
+          validate: engineerName => {
+            if (engineerName) {
               return true;
             } else {
               console.log("Please enter your engineer's name!");
@@ -123,9 +148,27 @@ const addEngineer = () => {
           if (answer.addMore) {
             pickEmployee();
           } else {
-              console.log("Done!");
+            console.log("Done!");
           }
       })
+}
+
+const pickEmployee = () => {
+    return inquirer.prompt([
+        {
+            type: 'list',
+            name: 'pick',
+            message: 'Who would you like to add?',
+            choices: ["Engineer", "Intern"]
+        }
+     ])
+     .then(answer => { 
+        if(answer.pick === "Intern") {
+            addIntern();
+        } else {
+            addEngineer();
+        }
+     })
 }
 
 const addIntern = () => {
@@ -197,25 +240,6 @@ const addIntern = () => {
       })
 }
 
-const pickEmployee = () => {
-   return inquirer.prompt([
-        {
-            type: 'list',
-            name: 'pick',
-            message: 'Who would you like to add?',
-            choices: ["Engineer", "Intern"]
-        }
-    ])
-    .then(answer => {
-        console.log(answer);
-        console.log(answer.pick);
 
-        if(answer.pick === "Intern") {
-            addIntern();
-        } else {
-            addEngineer();
-        }
-    })
-}
 
 getInput();
