@@ -1,6 +1,8 @@
 const inquirer = require("inquirer");
 const Employee = require("./lib/Employee");
+const Engineer = require("./lib/Engineer");
 const Manager = require('./lib/Manager');
+const Intern = require('./lib/Intern');
 
 let nameArray = [];
 
@@ -68,7 +70,7 @@ const getInput = () => {
     .then(answer => {
         console.log(nameArray);
 
-        nameArray.push(new Manager(answer.managerName, answer.managerID, answer.managerEmail, "Manager", answer.managerOffice));
+        nameArray.push(new Manager(answer.managerName, answer.managerID, answer.managerEmail, answer.managerOffice));
 
 
         console.log(nameArray);
@@ -81,8 +83,6 @@ const getInput = () => {
         console.log(error);
     })
 };
-
-
 
 const addEngineer = () => {
     return inquirer.prompt([
@@ -129,8 +129,8 @@ const addEngineer = () => {
           type: 'input',
           name: 'engineerGithub',
           message: "Enter your engineer's github",
-          validate: engineerOffice => {
-            if (engineerOffice) {
+          validate: engineerGithub => {
+            if (engineerGithub) {
               return true;
             } else {
               console.log("Please enter your engineer's github!");
@@ -145,30 +145,15 @@ const addEngineer = () => {
         }
       ])
       .then(answer => {
-          if (answer.addMore) {
-            pickEmployee();
-          } else {
-            console.log("Done!");
-          }
-      })
-}
+        nameArray.push(new Engineer(answer.engineerName, answer.engineerID, answer.engineerEmail, answer.engineerGithub));
+        console.log(nameArray);
 
-const pickEmployee = () => {
-    return inquirer.prompt([
-        {
-            type: 'list',
-            name: 'pick',
-            message: 'Who would you like to add?',
-            choices: ["Engineer", "Intern"]
-        }
-     ])
-     .then(answer => { 
-        if(answer.pick === "Intern") {
-            addIntern();
+        if (answer.addMore) {
+          pickEmployee();
         } else {
-            addEngineer();
+          console.log("Done!");
         }
-     })
+      })
 }
 
 const addIntern = () => {
@@ -232,14 +217,34 @@ const addIntern = () => {
         }
       ])
       .then(answer => {
-          if (answer.addMore) {
-            return pickEmployee();
-          } else {
-            return false;
-          }
+        nameArray.push(new Intern(answer.internName, answer.internID, answer.internEmail, answer.internSchool));
+        console.log(nameArray);
+
+        if (answer.addMore) {
+          return pickEmployee();
+        } else {
+          return false;
+        }
       })
 }
 
+const pickEmployee = () => {
+  return inquirer.prompt([
+      {
+          type: 'list',
+          name: 'pick',
+          message: 'Who would you like to add?',
+          choices: ["Engineer", "Intern"]
+      }
+   ])
+   .then(answer => { 
+      if(answer.pick === "Intern") {
+          addIntern();
+      } else {
+          addEngineer();
+      }
+   })
+}
 
 
 getInput();
