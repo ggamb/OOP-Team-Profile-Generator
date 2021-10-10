@@ -9,7 +9,7 @@ const { writeFile, copyFile } = require('./src/generate-site');
 let nameArray = [];
 
 // Creates an array of questions for user input
-const getInput = () => {
+const getManager = () => {
     return inquirer.prompt([
       {
         type: 'input',
@@ -132,7 +132,7 @@ const addEngineer = () => {
     {
       type: 'confirm',
       name: 'addMore',
-      message: 'Would you like to add another member to the team?'
+      message: 'Would you like to add another member to the team? Select No to en'
     }
   ])
   .then(answer => {
@@ -220,7 +220,7 @@ const addIntern = () => {
     {
       type: 'confirm',
       name: 'addMore',
-      message: 'Would you like to add another member to the team?'
+      message: 'Would you like to add another member to the team? Select No to end.'
     }
   ])
   .then(answer => {
@@ -270,7 +270,7 @@ const pickEmployee = () => {
 }
 
 //Initiates prompt
-getInput()
+getManager()
   .then(pickEmployee)
   .then(employeeArray => {
     return generatePage(employeeArray);

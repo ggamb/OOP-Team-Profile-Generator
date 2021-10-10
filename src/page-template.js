@@ -1,29 +1,62 @@
 // Create the employee cards based on user's inputs
 const generateCards = employeeArray => {
-    console.log("Generate cards function", employeeArray);
-    console.log("Generate cards function element 0", employeeArray[0]);
+    //Returns manager card, followed by cards for each engineer and then each intern
     return `
         <section class="my-3" id="portfolio">
         <h2 class="text-dark bg-primary p-2 display-inline-block">Employees</h2>
         <div class="flex-row justify-space-between">
-        ${employeeArray[0].getName()}
-        ${employeeArray[0].id}
-        ${employeeArray[0].email}
-        ${employeeArray[0].role}
-        ${employeeArray[0].officeNum}
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="./managerImage" alt="Card image cap">${elements.getRole()}
+            <div class="card-body">
+                <h5 class="card-title">${employeeArray[0].getName()}</h5>
+                <p class="card-text">
+                Name: ${employeeArray[0].getName()} <br/>
+                ID: ${employeeArray[0].getID()} <br/>
+                Email: <a href="mailto:${employeeArray[0].getEmail()}" class="">${employeeArray[0].getEmail()}</a> <br/>
+                Office Number: ${employeeArray[0].getOfficeNum()} 
+                </p>
+                
+            </div>
+        </div>
 
         ${employeeArray
             .filter(elements => elements.github !== undefined )
             .map(elements => {
-                return `${elements.getGithub()}` 
+                return `
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="./engineerImage" alt="Card image cap">${elements.getRole()}
+                    <div class="card-body">
+                        <h5 class="card-title">${elements.getName()}</h5><br/>
+                        <p class="card-text">
+                        ID: ${elements.getID()} <br/>
+                        Email: <a href="mailto:${elements.getEmail()}" class="">${elements.getEmail()}</a> <br/>
+                        Github: <a href="https://github.com/${elements.getGithub()}" target="_blank" class="">${elements.getGithub()}</a> <br/>
+                        </p>
+                        
+                    </div>
+                </div>
+                ` 
             }).join("")
         }
 
         ${employeeArray
-            .filter(elements => elements.school !== undefined)
-            .map(elements => {
-                return `${elements.getSchool()}`
-                
+        .filter(elements => elements.school !== undefined)
+        .map(elements => {
+            return `
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="./internImage" alt="Card image cap">${elements.getRole()}
+                <div class="card-body">
+                    <h5 class="card-title">${elements.getName()} </h5><br/>
+                    <p class="card-text">
+                    ID: ${elements.getID()} <br/>
+                    Email: <a href="mailto:${elements.getEmail()}" class="">${elements.getEmail()}</a> <br/>
+                    School: ${elements.getSchool()} 
+                    </p>
+                    
+                </div>
+            </div>
+            `
             }).join("")
         }
 
@@ -58,6 +91,9 @@ module.exports = employeeArray => {
         <main class="container my-5">
             ${generateCards(employeeArray)}
         </main>
+
+        <footer>
+        </footer>
 
     </body>
     </html>
