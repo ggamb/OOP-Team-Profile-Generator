@@ -66,7 +66,7 @@ const getManager = () => {
     ])
     .then(answer => {
       //Manager object added to array
-        nameArray.push(new Manager(answer.managerName, answer.managerID, answer.managerEmail, answer.managerOffice));      
+      nameArray.push(new Manager(answer.managerName, answer.managerID, answer.managerEmail, answer.managerOffice));      
     })
     .catch(error => {
         console.log(error);
@@ -132,7 +132,7 @@ const addEngineer = () => {
     {
       type: 'confirm',
       name: 'addMore',
-      message: 'Would you like to add another member to the team? Select No to en'
+      message: 'Would you like to add another member to the team? Select No to end.'
     }
   ])
   .then(answer => {
@@ -278,6 +278,7 @@ getManager()
     return writeFile(pageHTML);
   })
   .then(copyFileResponse => {
+    console.log("Check out the HTML file in the dist folder!");
     return copyFile(copyFileResponse);
   })
   .catch(err => {

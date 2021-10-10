@@ -1,5 +1,5 @@
 :root {
-    --primary: #9dbdc6;
+    --primary: #92e3fa;
     --secondary: #daeaef;
     --tertiary: #ff3d2e;
     --light: #ffffff;
@@ -130,6 +130,7 @@
     border: 3px solid var(--dark);
     border-radius: var(--border-radius);
     height: 300px;
+    background-color: var(--primary);
   }
   
   .card-header {
@@ -141,6 +142,7 @@
   
   .card-body {
     padding: 2.5%;
+    
   }
 
   .card-img-style {

@@ -3,7 +3,7 @@ const generateCards = employeeArray => {
     //Returns manager card, followed by cards for each engineer and then each intern
     return `
         <section class="my-3" id="portfolio">
-        <h2 class="text-dark bg-primary p-2 display-inline-block">Employees</h2>
+        <h2 class="text-dark bg-primary p-2 display-inline-block">Employees in your project:</h2>
         <div class="flex-row justify-flex-start">
         <div class="card" style="width: 18rem;">
             <img class="card-img-top card-img-style" src="../src/managerImage.png" alt="manager by Silviu Ojog from the Noun Project">
@@ -89,7 +89,7 @@ module.exports = employeeArray => {
     <body>
         <header>
         <div class="container flex-row justify-space-between align-center py-3">
-            <h1 class="page-title text-secondary">Project Manager</h1>
+            <h1 class="text-dark page-title text-secondary">Project Manager</h1>
         </div>
         </header>
         <main class="container my-5">
