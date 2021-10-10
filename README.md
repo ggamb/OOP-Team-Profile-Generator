@@ -38,7 +38,7 @@ This project is licensed under the MIT License. For the full license see this [l
 If you would like to contribute, feel free to fork this code and try it yourself.
 
 ## Tests
-I used Jest tests to ensure that my classes were working as intended. Feel free to improve the code and add tests as you go!
+I used [Jest](https://jestjs.io/) tests to ensure that my classes were working as intended. Feel free to improve the code and add tests as you go!
 
 ## Questions?
 My Github: [Github](https://github.com/ggamb)
