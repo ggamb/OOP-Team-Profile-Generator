@@ -5,35 +5,37 @@ const generateCards = employeeArray => {
         <section class="my-3" id="portfolio">
         <h2 class="text-dark bg-primary p-2 display-inline-block">Employees</h2>
         <div class="flex-row justify-space-between">
-
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="./managerImage" alt="Card image cap">${elements.getRole()}
+            <img class="card-img-top card-img-style" src="../src/managerImage.png" alt="manager by Silviu Ojog from the Noun Project">
             <div class="card-body">
-                <h5 class="card-title">${employeeArray[0].getName()}</h5>
+                <h3>${employeeArray[0].getName()}</h3>
+                <h5 class="card-title">
+                    ${employeeArray[0].getRole()}
+                </h5><br/>
                 <p class="card-text">
-                Name: ${employeeArray[0].getName()} <br/>
                 ID: ${employeeArray[0].getID()} <br/>
                 Email: <a href="mailto:${employeeArray[0].getEmail()}" class="">${employeeArray[0].getEmail()}</a> <br/>
                 Office Number: ${employeeArray[0].getOfficeNum()} 
                 </p>
-                
             </div>
         </div>
 
         ${employeeArray
-            .filter(elements => elements.github !== undefined )
+            .filter(elements => elements.github !== undefined)
             .map(elements => {
                 return `
                 <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="./engineerImage" alt="Card image cap">${elements.getRole()}
+                <img class="card-img-top card-img-style" src="../src/engineerImage.png" alt="engineer by IronSV from the Noun Project">
                     <div class="card-body">
-                        <h5 class="card-title">${elements.getName()}</h5><br/>
+                    <h3>${elements.getName()}</h3>
+                    <h5 class="card-title">
+                        ${elements.getRole()}
+                    </h5><br/>
                         <p class="card-text">
                         ID: ${elements.getID()} <br/>
                         Email: <a href="mailto:${elements.getEmail()}" class="">${elements.getEmail()}</a> <br/>
                         Github: <a href="https://github.com/${elements.getGithub()}" target="_blank" class="">${elements.getGithub()}</a> <br/>
                         </p>
-                        
                     </div>
                 </div>
                 ` 
@@ -45,15 +47,18 @@ const generateCards = employeeArray => {
         .map(elements => {
             return `
             <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="./internImage" alt="Card image cap">${elements.getRole()}
+            <img class="card-img-top card-img-style" src="../src/internImage.png" alt="Intern by Rozina Szogyenyi from the Noun Project">
+            
                 <div class="card-body">
-                    <h5 class="card-title">${elements.getName()} </h5><br/>
+                <h3>${elements.getName()}</h3>
+                <h5 class="card-title">
+                    ${elements.getRole()}
+                </h5><br/>
                     <p class="card-text">
                     ID: ${elements.getID()} <br/>
                     Email: <a href="mailto:${elements.getEmail()}" class="">${elements.getEmail()}</a> <br/>
                     School: ${elements.getSchool()} 
                     </p>
-                    
                 </div>
             </div>
             `
@@ -93,6 +98,7 @@ module.exports = employeeArray => {
         </main>
 
         <footer>
+        <div>Icons made by <a href="https://www.flaticon.com/authors/skyclick" title="Skyclick">Skyclick</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         </footer>
 
     </body>

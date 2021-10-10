@@ -168,7 +168,7 @@ const addIntern = () => {
     {
       type: 'input',
       name: 'internName',
-      message: "Enter your intern's name?",
+      message: "Enter your intern's name",
       validate: internName => {
         if (internName) {
           return true;
