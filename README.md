@@ -23,7 +23,7 @@ Once they are properly installed, navigate to the correct directory, open the te
 ## Usage
 See this video for an example for how to use this project manager:
 
-coming soon!
+https://user-images.githubusercontent.com/86434738/136714186-8734dad9-3028-47aa-84d6-ba2e8b51f530.mp4
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
