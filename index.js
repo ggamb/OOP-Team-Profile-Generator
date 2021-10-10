@@ -244,7 +244,6 @@ const addIntern = () => {
         }
       })
     } else {
-      console.log("Done!", nameArray);
       return nameArray;
     }
   })

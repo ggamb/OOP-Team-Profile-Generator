@@ -126,9 +126,10 @@
   
   /* CARDS */
   .card {
-    margin: 0 0 20px 0;
+    margin: 0 5px 20px 0;
     border: 3px solid var(--dark);
     border-radius: var(--border-radius);
+    height: 300px;
   }
   
   .card-header {
@@ -140,6 +141,20 @@
   
   .card-body {
     padding: 2.5%;
+  }
+
+  .card-img-style {
+    padding-top: 10px;
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .card-text {
+    line-height: 1.5;
+    font-family: 'Public Sans';
+    margin-bottom: 0;
   }
   
   /* FORM */
@@ -1032,27 +1047,7 @@
     }
 }
 
-.card {
-  height: 300px;
-}
 
-.card-body {
-
-}
-
-.card-img-style {
-  padding-top: 10px;
-  width: 100px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.card-text {
-  line-height: 1.5;
-  font-family: 'Public Sans';
-  margin-bottom: 0;
-}
 
 footer {
   position: absolute;
