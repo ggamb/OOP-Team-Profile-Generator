@@ -2,33 +2,30 @@
 const generateCards = employeeArray => {
     console.log("Generate cards function", employeeArray);
     console.log("Generate cards function element 0", employeeArray[0]);
-
-
     return `
         <section class="my-3" id="portfolio">
         <h2 class="text-dark bg-primary p-2 display-inline-block">Employees</h2>
         <div class="flex-row justify-space-between">
-        ${employeeArray[0].name}
+        ${employeeArray[0].getName()}
         ${employeeArray[0].id}
         ${employeeArray[0].email}
         ${employeeArray[0].role}
         ${employeeArray[0].officeNum}
 
-        ${employeeArray.map(elements => {
-            if(elements.github !== undefined) {
-                return `
-                    ${elements.github}
-                `
-            }
-        })}
+        ${employeeArray
+            .filter(elements => elements.github !== undefined )
+            .map(elements => {
+                return `${elements.getGithub()}` 
+            }).join("")
+        }
 
-        ${employeeArray.map(elements => {
-            if(elements.school !== undefined) {
-                return `
-                    ${elements.school}
-                `
-            }
-        })}
+        ${employeeArray
+            .filter(elements => elements.school !== undefined)
+            .map(elements => {
+                return `${elements.getSchool()}`
+                
+            }).join("")
+        }
 
         </div>
         </section>
