@@ -10,6 +10,9 @@
 ## Description
 Coming soon!
 
+Once you clone the code and run it as described below, the result of the HTML will be something like [this](https://user-images.githubusercontent.com/86434738/136713408-6b03103e-a1e1-4eb7-a870-1df694ae3f8f.png).
+
+
 ## Installation
 After cloning the code, you must install [Node.js](https://nodejs.org/en/) and [Inquirer](https://www.npmjs.com/package/inquirer). See their respective documentation to ensure that they are installed correctly.
 
