@@ -89,7 +89,7 @@ module.exports = employeeArray => {
     <body>
         <header>
         <div class="container flex-row justify-space-between align-center py-3">
-            <h1 class="text-dark page-title text-secondary">Project Manager</h1>
+            <h1 class="text-dark page-title text-secondary">Team Profile Generator</h1>
         </div>
         </header>
         <main class="container my-5">
