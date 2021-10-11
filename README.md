@@ -1,4 +1,4 @@
-# Team Profile Gen - OOP Challenge
+# Team Profile Generator - OOP Challenge
 ## Table of Contents
 * [Description](#description)
 * [Installation](#installation)
