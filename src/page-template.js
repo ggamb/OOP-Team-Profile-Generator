@@ -6,7 +6,7 @@ const generateCards = employeeArray => {
         <h2 class="text-dark bg-primary p-2 display-inline-block">Employees in your project:</h2>
         <div class="flex-row justify-flex-start">
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top card-img-style" src="../src/managerImage.png" alt="manager by Silviu Ojog from the Noun Project">
+            <img class="card-img-top card-img-style" src="managerImage.png" alt="manager by Silviu Ojog from the Noun Project">
             <div class="card-body">
                 <h3>${employeeArray[0].getName()}</h3>
                 <h5 class="card-title">
@@ -25,7 +25,7 @@ const generateCards = employeeArray => {
             .map(elements => {
                 return `
                 <div class="card" style="width: 18rem;">
-                <img class="card-img-top card-img-style" src="../src/engineerImage.png" alt="engineer by IronSV from the Noun Project">
+                <img class="card-img-top card-img-style" src="engineerImage.png" alt="engineer by IronSV from the Noun Project">
                     <div class="card-body">
                     <h3>${elements.getName()}</h3>
                     <h5 class="card-title">
@@ -47,7 +47,7 @@ const generateCards = employeeArray => {
         .map(elements => {
             return `
             <div class="card" style="width: 18rem;">
-            <img class="card-img-top card-img-style" src="../src/internImage.png" alt="Intern by Rozina Szogyenyi from the Noun Project">
+            <img class="card-img-top card-img-style" src="internImage.png" alt="Intern by Rozina Szogyenyi from the Noun Project">
                 <div class="card-body">
                 <h3>${elements.getName()}</h3>
                 <h5 class="card-title">
