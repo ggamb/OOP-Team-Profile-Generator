@@ -18,7 +18,7 @@ const writeFile = fileContent => {
 };
 
 // Copy the file
-const copyFile = () => {
+const copyFileStyle = () => {
   return new Promise((resolve, reject) => {
     fs.copyFile('./src/style.css', './dist/style.css', err => {
       if (err) {
@@ -34,4 +34,50 @@ const copyFile = () => {
   });
 };
 
-module.exports = { writeFile, copyFile };
+const copyFileIntern = () => {
+  return new Promise((resolve, reject) => {
+    fs.copyFile('./src/internImage.png', './dist/internImage.png', err => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      resolve({
+        ok: true
+      });
+    });
+  });
+};
+
+const copyFileEngineer = () => {
+  return new Promise((resolve, reject) => {
+    fs.copyFile('./src/engineerImage.png', './dist/engineerImage.png', err => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      resolve({
+        ok: true
+      });
+    });
+  });
+};
+
+const copyFileManager = () => {
+  return new Promise((resolve, reject) => {
+    fs.copyFile('./src/managerImage.png', './dist/managerImage.png', err => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      resolve({
+        ok: true
+      });
+    });
+  });
+};
+
+
+module.exports = { writeFile, copyFileStyle, copyFileIntern, copyFileEngineer, copyFileManager };

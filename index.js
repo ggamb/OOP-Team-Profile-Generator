@@ -4,7 +4,8 @@ const Engineer = require("./lib/Engineer");
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const generatePage = require('./src/page-template');
-const { writeFile, copyFile } = require('./src/generate-site');
+const { writeFile } = require('./src/generate-site');
+const { copyFileStyle, copyFileIntern, copyFileEngineer, copyFileManager  } = require("./src/generate-site");
 
 let nameArray = [];
 
@@ -279,7 +280,10 @@ getManager()
   })
   .then(copyFileResponse => {
     console.log("Check out the HTML file in the dist folder!");
-    return copyFile(copyFileResponse);
+    copyFileIntern();
+    copyFileEngineer();
+    copyFileManager();
+    return copyFileStyle(copyFileResponse);
   })
   .catch(err => {
     console.log(err);
